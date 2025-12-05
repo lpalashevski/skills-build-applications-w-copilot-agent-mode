@@ -50,30 +50,39 @@ class WorkoutSerializer(serializers.Serializer):
     difficulty = serializers.CharField()
 
 # ViewSets
+import os
+
+def get_api_base_url():
+    codespace_name = os.environ.get('CODESPACE_NAME')
+    if codespace_name:
+        return f"https://{codespace_name}-8000.app.github.dev/api/"
+    return "http://localhost:8000/api/"
+
 class UserViewSet(viewsets.ViewSet):
     def list(self, request):
         users = list(get_collection('users').find({}, {'_id': 0}))
-        return JsonResponse(users, safe=False)
+        # Add API base URL to response for demonstration
+        return JsonResponse({"api_base_url": get_api_base_url(), "users": users}, safe=False)
 
 class TeamViewSet(viewsets.ViewSet):
     def list(self, request):
         teams = list(get_collection('teams').find({}, {'_id': 0}))
-        return JsonResponse(teams, safe=False)
+        return JsonResponse({"api_base_url": get_api_base_url(), "teams": teams}, safe=False)
 
 class ActivityViewSet(viewsets.ViewSet):
     def list(self, request):
         activities = list(get_collection('activities').find({}, {'_id': 0}))
-        return JsonResponse(activities, safe=False)
+        return JsonResponse({"api_base_url": get_api_base_url(), "activities": activities}, safe=False)
 
 class LeaderboardViewSet(viewsets.ViewSet):
     def list(self, request):
         leaderboard = list(get_collection('leaderboard').find({}, {'_id': 0}))
-        return JsonResponse(leaderboard, safe=False)
+        return JsonResponse({"api_base_url": get_api_base_url(), "leaderboard": leaderboard}, safe=False)
 
 class WorkoutViewSet(viewsets.ViewSet):
     def list(self, request):
         workouts = list(get_collection('workouts').find({}, {'_id': 0}))
-        return JsonResponse(workouts, safe=False)
+        return JsonResponse({"api_base_url": get_api_base_url(), "workouts": workouts}, safe=False)
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
