@@ -1,10 +1,17 @@
+
 .App {
-  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  color: #22223b;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
 }
 
+
 .App-logo {
-  height: 40vmin;
+  height: 48px;
+  width: auto;
   pointer-events: none;
+  margin-right: 16px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,19 +20,98 @@
   }
 }
 
+
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: linear-gradient(90deg, #4f8cff 0%, #6dd5ed 100%);
+  padding-bottom: 0;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
 }
 
-.App-link {
-  color: #61dafb;
+
+.App-link, a {
+  color: #4f8cff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.App-link:hover, a:hover {
+  color: #22223b;
+  text-decoration: underline;
+}
+/* Navigation Bar */
+.navbar {
+  background: linear-gradient(90deg, #4f8cff 0%, #6dd5ed 100%) !important;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+}
+.navbar-brand {
+  font-size: 1.7rem;
+  color: #fff !important;
+  letter-spacing: 1px;
+}
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+  background: #e0eafc;
+  color: #4f8cff !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #22223b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Buttons */
+button, .btn {
+  background: linear-gradient(90deg, #4f8cff 0%, #6dd5ed 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(79, 140, 255, 0.08);
+}
+button:hover, .btn:hover {
+  background: #22223b;
+  color: #fff;
+}
+
+/* Tables */
+table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+}
+thead {
+  background: linear-gradient(90deg, #4f8cff 0%, #6dd5ed 100%);
+  color: #fff;
+}
+tbody tr:nth-child(even) {
+  background: #f3f7fa;
+}
+tbody tr:hover {
+  background: #e0eafc;
+}
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+/* Favicon and logo tweaks */
+.octofit-logo {
+  height: 48px;
+  width: auto;
+  margin-right: 16px;
 }
 
 @keyframes App-logo-spin {
